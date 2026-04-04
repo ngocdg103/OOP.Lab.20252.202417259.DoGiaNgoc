@@ -1,0 +1,6 @@
+Page 9. 
+Nếu bạn tạo một Constructor để khởi tạo DVD bằng title (kiểu String), sau đó tạo thêm một Constructor khác để khởi tạo DVD bằng category (cũng kiểu String). Java có cho phép điều này không?
+
+Không. Java phân biệt các Constructor dựa trên Signature, bao gồm số lượng tham số, kiểu dữ liệu và thứ tự của chúng. 
+Việc cả 2 Constructor đều chỉ nhận 1 tham số kiểu String khiến trình biên dịch không phân biệt được đang gọi Constructor nào --> lỗi "Duplicate Method" 
+
