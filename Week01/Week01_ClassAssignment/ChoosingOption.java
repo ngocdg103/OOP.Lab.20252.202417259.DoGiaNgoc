@@ -1,4 +1,4 @@
-package OtherProjects/Week01; 
+package Week01; 
 import javax.swing.JOptionPane;
 
 public class ChoosingOption {
