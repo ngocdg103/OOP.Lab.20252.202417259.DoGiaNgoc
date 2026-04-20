@@ -1,3 +1,4 @@
+package OtherProjects.hust.soict.dsai.lab01.OOP_Lab;
 import java.util.Scanner;
 public class StarTriangle {
     public static void main(String[] args) {

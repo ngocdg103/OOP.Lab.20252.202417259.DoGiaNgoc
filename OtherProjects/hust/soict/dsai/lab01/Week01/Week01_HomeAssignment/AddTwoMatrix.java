@@ -1,4 +1,4 @@
-package Week01.Week01_HomeAssignment;
+package OtherProjects.hust.soict.dsai.lab01.Week01.Week01_HomeAssignment;
 import java.util.Scanner; 
 
 public class AddTwoMatrix {
