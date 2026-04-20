@@ -54,12 +54,21 @@ public class Cart {
     }
 
     public void printCart() {
-        System.out.println("Your current Cart:");
+        System.out.println("***********************CART***********************");
+        System.out.println("Ordered Items:");
+    
         for (int i = 0; i < qtyOrdered; i++) {
-            System.out.println((i+1) + ". DVD - " + itemsOrdered[i].getTitle() + " - " + itemsOrdered[i].getCost() + "$");
-        }
-        System.out.println("Total cost: " + totalCost() + "$");
-        System.out.println("___________________________________");
+       
+        System.out.println(itemsOrdered[i].getId() + ". DVD - " 
+            + itemsOrdered[i].getTitle() + " - " 
+            + itemsOrdered[i].getCategory() + " - " 
+            + itemsOrdered[i].getDirector() + " - " 
+            + itemsOrdered[i].getLength() + ": " 
+            + itemsOrdered[i].getCost() + " $");
+    }
+    
+    System.out.println("Total cost: " + totalCost() + " $");
+    System.out.println("***************************************************");
     
     }
 }
