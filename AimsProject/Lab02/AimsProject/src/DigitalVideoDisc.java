@@ -70,4 +70,12 @@ public class DigitalVideoDisc {
     public void setTitle(String title) {
         this.title = title;
     }
+    @Override
+    public String toString() {
+        return "DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + " $";
+    }
+
+    public boolean isMatch(String title) {
+        return this.title.equalsIgnoreCase(title);
+    }
 }
