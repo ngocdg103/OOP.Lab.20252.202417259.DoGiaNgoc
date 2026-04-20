@@ -1,9 +1,11 @@
+package hust.soict.dsai.aims.cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED]; 
     private int qtyOrdered = 0;
 
-    // Thêm 1 DVD
+    // 1. Thêm 1 DVD
     public void addDigitalVideoDisc(DigitalVideoDisc disc) { 
         if (qtyOrdered < MAX_NUMBERS_ORDERED) {
             itemsOrdered[qtyOrdered++] = disc; 
@@ -13,7 +15,7 @@ public class Cart {
         }
     }
 
-    // Thêm bằng mảng
+    // 2. Thêm bằng mảng
     public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
         for (DigitalVideoDisc disc : dvdList) {
             if (qtyOrdered < MAX_NUMBERS_ORDERED) {
@@ -26,45 +28,41 @@ public class Cart {
         }
     }
 
-    // Thêm 2 DVD
+    // 3. Thêm 2 DVD
     public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
         if (qtyOrdered + 2 <= MAX_NUMBERS_ORDERED) {
             addDigitalVideoDisc(dvd1);
             addDigitalVideoDisc(dvd2);
+        } else {
+            System.out.println("The cart is full"); 
         }
-
-        else System.out.println("The cart is full"); 
     }
 
-    // Xóa DVD
+    // 4. Xóa DVD
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         if (qtyOrdered == 0) {
             System.out.println("The cart is empty.");
             return;
         }
-
         int indexToRemove = -1;
-
         for (int i = 0; i < qtyOrdered; i++) {
             if (itemsOrdered[i].equals(disc)) {
                 indexToRemove = i;
                 break;
             }
         }
-
         if (indexToRemove != -1) {
             for (int i = indexToRemove; i < qtyOrdered - 1; i++) {
                 itemsOrdered[i] = itemsOrdered[i + 1];
             }
             itemsOrdered[--qtyOrdered] = null;
-
             System.out.println("The disc \"" + disc.getTitle() + "\" has been removed.");
         } else {
             System.out.println("The disc \"" + disc.getTitle() + "\" was not found in the cart.");
         }
     }
 
-    // Tổng tiền
+    // 5. Tổng tiền
     public float totalCost() {
         float total = 0; 
         for (int i = 0; i < qtyOrdered; i++) {
@@ -73,15 +71,45 @@ public class Cart {
         return total; 
     }
 
-    // In giỏ hàng
+    // 6. In giỏ hàng (Đã sửa lỗi lặp và định dạng)
     public void printCart() {
-        System.out.println("Your current Cart:");
+        System.out.println("***********************CART***********************");
+        System.out.println("Ordered Items:");
         for (int i = 0; i < qtyOrdered; i++) {
-            System.out.println((i + 1) + ". DVD - " 
+            System.out.println(itemsOrdered[i].getId() + ". DVD - " 
                 + itemsOrdered[i].getTitle() + " - " 
-                + itemsOrdered[i].getCost() + "$");
+                + itemsOrdered[i].getCategory() + " - " 
+                + itemsOrdered[i].getDirector() + " - " 
+                + itemsOrdered[i].getLength() + ": " 
+                + itemsOrdered[i].getCost() + " $");
         }
-        System.out.println("Total cost: " + totalCost() + "$");
-        System.out.println("___________________________________");
+        System.out.println("Total cost: " + totalCost() + " $");
+        System.out.println("***************************************************");
     }
-}
+
+    // Tìm theo ID
+    public void searchById(int id) {
+        boolean found = false;
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemsOrdered[i].getId() == id) {
+                System.out.println("Found match: " + itemsOrdered[i].toString());
+                found = true;
+                break;
+            }
+        }
+        if (!found) System.out.println("No DVD found with ID: " + id);
+    }
+
+    // Tìm theo Title
+    public void searchByTitle(String title) {
+        boolean found = false;
+        for (int i = 0; i < qtyOrdered; i++) {
+        
+            if (itemsOrdered[i].isMatch(title)) { 
+                System.out.println("Found match: " + itemsOrdered[i].toString());
+                found = true;
+            }
+        }
+        if (!found) System.out.println("No DVD found with title: " + title);
+    }
+} 

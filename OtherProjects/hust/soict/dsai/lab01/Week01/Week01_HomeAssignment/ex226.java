@@ -1,4 +1,4 @@
-package Week01; 
+package Week01.Week01_HomeAssignment;
 import java.util.Scanner; 
 public class ex226 {
     public static void main(String[] args) {
