@@ -1,5 +1,4 @@
-package Week01; 
-
+package OtherProjects.hust.soict.dsai.lab01.OOP_Lab;
 import java.util.Scanner;
 
 public class DayDisplay {

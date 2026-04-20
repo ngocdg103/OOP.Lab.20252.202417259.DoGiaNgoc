@@ -1,0 +1,18 @@
+Câu 1: Tại sao phương thức swap() cũ không tráo đổi được hai đối tượng DigitalVideoDisc?
+- Trong Java, mọi tham số đều được truyền theo giá trị (Pass-by-value). 
+- Khi truyền hai đối tượng vào hàm swap (Object o1, Object o2), Java tạo ra hai "biến tạm" o1 và o2 lưu bản sao của địa chỉ (reference). 
+- Phép gán trong hàm swap chỉ tráo đổi giá trị địa chỉ của hai biến tạm này bên trong phạm vi hàm (Stack). 
+- Các biến gốc (jungleDVD và cinderellaDVD) ở hàm main vẫn trỏ đến địa chỉ cũ, do đó không có sự thay đổi nào xảy ra với đối tượng thật.
+
+Câu 2: Làm thế nào để thực hiện việc tráo đổi tiêu đề (title) của DVD?
+- Để thay đổi trạng thái của đối tượng, ta phải tác động trực tiếp vào các thuộc tính của đối tượng đó thông qua các phương thức setter hoặc truy cập trực tiếp (nếu được phép).
+- Ví dụ: Dùng dvd1.setTitle(dvd2.getTitle()) để thay đổi nội dung bên trong vùng nhớ Heap của đối tượng.
+
+Câu 3: Sự khác biệt giữa String, StringBuffer và StringBuilder là gì?
+- String: Là đối tượng không thể thay đổi (Immutable). Mỗi khi cộng chuỗi bằng toán tử "+", Java tạo ra một đối tượng String mới và vứt bỏ đối tượng cũ, gây tốn bộ nhớ và chậm hệ thống khi dùng trong vòng lặp lớn.
+- StringBuffer: Có thể thay đổi (Mutable), an toàn cho đa luồng (Thread-safe) nhưng tốc độ chậm hơn StringBuilder một chút do có cơ chế đồng bộ hóa.
+- StringBuilder: Có thể thay đổi (Mutable), không an toàn cho đa luồng nhưng tốc độ xử lý nhanh nhất. Thường được ưu tiên dùng cho các tác vụ xử lý chuỗi đơn luồng trong vòng lặp.
+
+=> Kết luận 
+- Khi cộng chuỗi 65536 lần bằng String (+), thời gian thực thi rất dài và tạo ra nhiều "rác" 
+- Khi dùng StringBuilder/StringBuffer, thời gian thực thi gần như bằng 0 và không tạo ra các đối tượng trung gian dư thừa

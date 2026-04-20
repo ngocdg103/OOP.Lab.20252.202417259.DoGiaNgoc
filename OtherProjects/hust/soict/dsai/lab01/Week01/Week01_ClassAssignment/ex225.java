@@ -1,6 +1,8 @@
+package OtherProjects.hust.soict.dsai.lab01.Week01.Week01_ClassAssignment; 
+
 import java.util.Scanner; 
 
-public class ex5 {
+public class ex225 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); 
         // Nhập 2 số

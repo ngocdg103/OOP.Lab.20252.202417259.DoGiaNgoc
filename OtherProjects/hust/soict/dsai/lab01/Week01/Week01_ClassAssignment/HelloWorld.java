@@ -1,4 +1,4 @@
-package Week01.Week01_ClassAssignment; 
+package OtherProjects.hust.soict.dsai.lab01.Week01.Week01_ClassAssignment; 
 
 public class HelloWorld {
     public static void main(String[] args) {

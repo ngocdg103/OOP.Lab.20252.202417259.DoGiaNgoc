@@ -1,3 +1,5 @@
+package OtherProjects.hust.soict.dsai.lab01.Week01.Week01_ClassAssignment; 
+
 import java.util.Scanner;
 public class StarTriangle {
     public static void main(String[] args) {

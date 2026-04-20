@@ -1,3 +1,6 @@
+package hust.soict.dsai.aims;
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Aims {
     public static void main(String[] args) {
@@ -14,6 +17,11 @@ public class Aims {
         DigitalVideoDisc dvd3 = new DigitalVideoDisc(
             "Pirates of the Caribbean: Dead Man's Chest", "Action/Adventure", "Gore Verbinski", 151, 29.95f
         );
+
+        System.out.println("--- Check Auto-increment ID ---");
+        System.out.println("DVD 1 ID: " + dvd1.getId()); // 1
+        System.out.println("DVD 2 ID: " + dvd2.getId()); // 2
+        System.out.println("DVD 3 ID: " + dvd3.getId()); // 3
 
         anOrder.addDigitalVideoDisc(dvd1);
         anOrder.addDigitalVideoDisc(dvd2);
