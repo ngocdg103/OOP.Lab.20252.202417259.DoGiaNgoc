@@ -19,10 +19,13 @@ public class Track implements Playable {
 
     @Override
     public void play() {
+        if (this.length <= 0) {
+            System.out.println("The track \"" + this.title + "\" cannot be played because its length is 0 or negative.");
+            return;
+        }
         System.out.println("Playing track: " + this.getTitle());
         System.out.println("Track length: " + this.getLength());
     }
-
     // Check equal
     @Override
     public boolean equals(Object obj) {

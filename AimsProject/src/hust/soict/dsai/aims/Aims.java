@@ -180,9 +180,49 @@ public class Aims {
         scanner.nextLine();
 
         if (choice == 1) {
-            System.out.print("Enter the title of the new DVD: ");
+            System.out.println("Choose media type:");
+            System.out.println("1. DVD");
+            System.out.println("2. Book");
+            System.out.println("3. CD");
+            System.out.print("Your choice: ");
+            int typeChoice = scanner.nextInt();
+            scanner.nextLine();
+
+            System.out.print("Enter title: ");
             String title = scanner.nextLine();
-            store.addMedia(new DigitalVideoDisc(title));
+            System.out.print("Enter category: ");
+            String category = scanner.nextLine();
+            System.out.print("Enter cost: ");
+            float cost = scanner.nextFloat();
+            scanner.nextLine();
+
+            if (typeChoice == 1) {
+                System.out.print("Enter director: ");
+                String director = scanner.nextLine();
+                System.out.print("Enter length (mins): ");
+                int length = scanner.nextInt();
+                scanner.nextLine();
+                store.addMedia(new DigitalVideoDisc(title, category, director, length, cost));
+
+            } else if (typeChoice == 2) {
+                Book book = new Book(title, category, cost);
+                System.out.print("Enter author (or press Enter to skip): ");
+                String author = scanner.nextLine();
+                if (!author.isEmpty()) book.addAuthor(author);
+                store.addMedia(book);
+
+            } else if (typeChoice == 3) {
+                System.out.print("Enter artist: ");
+                String artist = scanner.nextLine();
+                System.out.print("Enter director: ");
+                String director = scanner.nextLine();
+                CompactDisc cd = new CompactDisc(title, category, director, cost, artist);
+                store.addMedia(cd);
+
+            } else {
+                System.out.println("Invalid media type.");
+            }
+
         } else if (choice == 2) {
             System.out.print("Enter the title of the media to remove: ");
             String title = scanner.nextLine();
