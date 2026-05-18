@@ -52,6 +52,14 @@ public class Store {
             System.out.println("The media is not in the store.");
         }
     }
+    public Media searchByTitle(String title) {
+        for (Media m : itemsInStore) {
+            if (m.getTitle().equalsIgnoreCase(title)) {
+                return m;
+            }
+        }
+        return null;
+    }
 
     // In kho hàng
     public void print() {

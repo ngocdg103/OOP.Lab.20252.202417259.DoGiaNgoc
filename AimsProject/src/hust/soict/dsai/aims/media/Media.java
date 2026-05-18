@@ -1,5 +1,6 @@
 package hust.soict.dsai.aims.media;
 
+import java.util.Comparator;
 
 public class Media {
     private int id;
@@ -71,5 +72,8 @@ public class Media {
             return other.title == null;
         } return this.title.equalsIgnoreCase(other.title); 
     }
+
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
 }

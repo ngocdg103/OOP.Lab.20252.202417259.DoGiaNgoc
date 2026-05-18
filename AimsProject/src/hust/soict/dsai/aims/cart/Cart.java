@@ -1,6 +1,10 @@
 package hust.soict.dsai.aims.cart;
 import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.media.MediaComparatorByCostTitle;
+import hust.soict.dsai.aims.media.MediaComparatorByTitleCost;
+
 import java.util.ArrayList; 
+import java.util.Collections;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
@@ -134,5 +138,27 @@ public class Cart {
         if (!found) {
             System.out.println("No media found with title: " + title);
         }
+    }
+
+    public void sortByTitleCost() {
+        Collections.sort(itemsOrdered, new MediaComparatorByTitleCost());
+    }
+
+
+    public void sortByCostTitle() {
+        Collections.sort(itemsOrdered, new MediaComparatorByCostTitle()); 
+    }
+
+    public Media searchMedia(String title) {
+        for (Media m : itemsOrdered) {
+            if (m.getTitle().equalsIgnoreCase(title)) {
+                return m;
+            }
+        }
+        return null;
+    }
+
+    public void emptyCart() {
+        itemsOrdered.clear();
     }
 } 
